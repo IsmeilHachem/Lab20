@@ -1,0 +1,70 @@
+--1 
+SELECT * FROM customers;
+
+--2
+SELECT DISTINCT country FROM customers;
+
+--3 
+SELECT * FROM customers WHERE customerid LIKE 'bl%';
+
+--4 
+SELECT * FROM orders LIMIT 100;
+
+--5 
+SELECT * FROM customers WHERE postalcode IN ('1010','3012','12209','05023');
+
+--6 
+SELECT * FROM orders WHERE shipregion IS NOT null;
+
+--7 
+SELECT * FROM customers ORDER BY country, city;
+
+--8 
+INSERT INTO customers(customerid, companyname) VALUES ('toona', 'toonami');
+
+--9 
+UPDATE orders SET shipregion='EuroZone' WHERE shipcountry='France';
+
+--10 
+DELETE FROM `order details` WHERE quantity='1';
+
+--11 
+SELECT AVG(quantity), MAX(quantity), MIN(quantity) FROM `order details`;
+
+--12 
+SELECT AVG(quantity), MAX(quantity), MIN(quantity) FROM `order details` GROUP BY orderid;
+
+--13 
+SELECT customerid FROM orders WHERE orderid='10290';
+
+--14 
+SELECT * FROM orders INNER JOIN customers on orders.customerid = customers.customerid;
+
+--15 
+SELECT * FROM orders LEFT JOIN customers on orders.customerid = customers.customerid;
+
+--16 
+SELECT * FROM orders RIGHT JOIN customers on orders.customerid = customers.customerid;
+
+--17 
+SELECT firstname FROM employees WHERE reportsto IS NULL;
+
+--18 
+SELECT firstname FROM employees Where reportsto ="2";
+
+
+--Class
+CREATE TABLE `northwind`.`class` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(40) NULL,
+  PRIMARY KEY (`id`));
+
+
+--Student
+CREATE TABLE `northwind`.`student` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(40) NULL,
+  `class_id` VARCHAR(40) NULL,
+  PRIMARY KEY (`id`));
+
+  
